@@ -1,9 +1,9 @@
-import { convertFromArrayToNumber, convertFromNumberToArray } from "./utils";
+import { convertFromNumberToArray, convertFromArrayToNumber } from "./utils";
 
 const romanSigns = {
   1: "I",
   2: "II",
-  3: "II",
+  3: "III",
   4: "IV",
   5: "V",
   6: "VI",
@@ -32,18 +32,33 @@ const romanSigns = {
 };
 
 export const convert = (numb: number): string => {
-  // Convert number to array of numbers (ej: 230 -> [2,3,0])
+  // Convierte numero a array de numeros (ej: 230 -> [2,3,0])
   const arrayNumbers = convertFromNumberToArray(numb);
   console.log(arrayNumbers);
 
+  // Si es solo un numero, dar directamente el value desde romanSigns
   if (arrayNumbers.length === 1) {
     if (romanSigns[arrayNumbers[0]] === 0) return "ZERO";
     return romanSigns[arrayNumbers[0]];
-  } else {
+  }
+
+  const arrayRomans = [];
+  arrayNumbers.forEach((numb, index) => {
+    // El ultimo elemento no se multiplica
+    if (index === arrayNumbers.length - 1) {
+      arrayRomans.push(romanSigns[numb] || "");
+    } else {
+      const plainNumber = numb * 10 ** (arrayNumbers.length - 1 - index);
+      arrayRomans.push(romanSigns[plainNumber]);
+    }
+  });
+
+  // Junta todos los signos romanos
+  const result = arrayRomans.join("");
+
+  if (result === "") {
     return "Roman sign not found";
   }
 
-  // if (separatedNumbers.length === 2) {
-  //   const decimalValue = convertToWholeNumber();
-  // }
+  return result;
 };

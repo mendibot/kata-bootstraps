@@ -1,4 +1,4 @@
-// Convierte un array a numeros sin espacio (ej: [2,3,0] -> 230)
+// Convierte un array a numeros (ej: [2,3,0] -> 230)
 export const convertFromArrayToNumber = (numbers: number[]): number => {
   const stringJoinedNumbers = numbers.join("");
   return Number(stringJoinedNumbers);
