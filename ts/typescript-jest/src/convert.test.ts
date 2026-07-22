@@ -33,7 +33,7 @@ describe("Convierte numeros a string romanos", () => {
     const result = convert(740);
     expect(result).toBe("DCCXL");
   });
-  it("recibe 0 y devuelve ZERO", () => {
+  it("recibe 0 y devuelve Roman sign not found", () => {
     const result = convert(0);
     expect(result).toBe("Roman sign not found");
   });
