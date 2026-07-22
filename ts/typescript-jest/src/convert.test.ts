@@ -21,4 +21,20 @@ describe("Convierte numeros a string romanos", () => {
     const result = convert(45);
     expect(result).toBe("XLV");
   });
+  it("recibe 89 y devuelve LXXXIX", () => {
+    const result = convert(89);
+    expect(result).toBe("LXXXIX");
+  });
+  it("recibe 389 y devuelve CCCLXXXIX", () => {
+    const result = convert(389);
+    expect(result).toBe("CCCLXXXIX");
+  });
+  it("recibe 740 y devuelve DCCXL", () => {
+    const result = convert(740);
+    expect(result).toBe("DCCXL");
+  });
+  it("recibe 0 y devuelve ZERO", () => {
+    const result = convert(0);
+    expect(result).toBe("Roman sign not found");
+  });
 });

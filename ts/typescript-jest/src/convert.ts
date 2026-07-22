@@ -1,4 +1,4 @@
-import { convertFromNumberToArray, convertFromArrayToNumber } from "./utils";
+import { convertFromNumberToArray } from "./utils";
 
 const romanSigns = {
   1: "I",
@@ -35,12 +35,6 @@ export const convert = (numb: number): string => {
   // Convierte numero a array de numeros (ej: 230 -> [2,3,0])
   const arrayNumbers = convertFromNumberToArray(numb);
   console.log(arrayNumbers);
-
-  // Si es solo un numero, dar directamente el value desde romanSigns
-  if (arrayNumbers.length === 1) {
-    if (romanSigns[arrayNumbers[0]] === 0) return "ZERO";
-    return romanSigns[arrayNumbers[0]];
-  }
 
   const arrayRomans = [];
   arrayNumbers.forEach((numb, index) => {
