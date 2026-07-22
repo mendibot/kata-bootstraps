@@ -6,4 +6,9 @@ describe("Convierte numeros a string romanos", () => {
 
     expect(result).toBe("I");
   });
+  it("recibe 8 y devuelve VIII", () => {
+    const result = convert(8);
+
+    expect(result).toBe("VIII");
+  });
 });
